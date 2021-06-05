@@ -1,1 +1,85 @@
-// styles go here
+body {
+  display: flex;
+justify-items: center;
+  padding: 40px;
+  background-color: grey;
+}
+
+.right {
+  // margin-left: 420px;
+  width: 150px;
+  height: 140px;
+  background: center/ cover no-repeat url(money-right.jpg);
+}
+
+.left {
+  // margin-left: 420px;
+  width: 150px;
+  height: 140px;
+  background: center/ cover no-repeat url(money-left.jpg);
+}
+
+.title {
+  font-size: 20px;
+  // margin-left: 530px;
+  color: rgb(47, 71, 255);
+}
+
+.neon {
+  font-size: 0.5em;
+  width: fit-content;
+  position: relative;
+  left: 50px;
+  // bottom: 20px;
+  // left: 560px;
+  text-decoration: none;
+  color: rgb(47, 71, 255);
+  cursor: pointer;
+  border: rgb(47, 71, 255) 0.13em solid;
+  border-radius: 0.3em;
+  padding: 0.25em 1.2em;
+
+  text-shadow: 0 0 0.13em hsl(0, 0%, 100% / 0.5), 0 0 0.45em rgb(47, 71, 255);
+  box-shadow: inset 0 0 0.5em 0 rgb(47, 71, 255), 0 0 0.5em 0 rgb(47, 71, 255);
+
+  &::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: rgb(47, 71, 255);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1em);
+    opacity: 0.7;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 1em 0.5em rgb(47, 71, 255);
+    opacity: 0;
+    transition: opacity 100ms linear;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &:hover {
+    background-color: rgb(47, 71, 255);
+    color: rgb(0, 12, 102);
+    text-shadow: none;
+  }
+}

@@ -2,15 +2,31 @@ import React from 'react';
 import './App.scss';
 
 class App extends React.Component {
-  addOne = () => {};
+  state = {
+    side: true,
+  }
 
-  add100 = () => {};
-
-  increase = () => {};
+  dance = () => {
+    this.setState(state => ({ side: !state.side }));
+  };
 
   render() {
     return (
-      <h1>Count: 0</h1>
+      <>
+        {this.state.side
+          ? (<div className="right" />)
+          : (<div className="left" />)
+        }
+
+        <h1 className="title">Press button to dance</h1>
+        <button
+          className="neon"
+          type="button"
+          onClick={this.dance}
+        >
+          Press me
+        </button>
+      </>
     );
   }
 }
